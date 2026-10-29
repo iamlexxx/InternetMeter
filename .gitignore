@@ -1,0 +1,213 @@
+## ====================================================================
+## InternetMeter — Complete Enterprise-Grade .gitignore
+## Covers: .NET 8 / C# / WPF / XAML / Visual Studio / VS Code / Rider
+##         Python Bytecode & Environments (.agents / Skills)
+##         Node.js Tooling / Graphify Knowledge Graph / Secrets / OS
+## ====================================================================
+
+# --------------------------------------------------
+# 1. Build & Compilation Outputs (.NET 8 / WPF)
+# --------------------------------------------------
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+ARM/
+ARM64/
+bld/
+publish/
+[Ll]og/
+[Ll]ogs/
+*.baml
+*.g.baml
+*.lref
+*.Up2Date
+*.FileListAbsolute.txt
+*.AssemblyReference.cache
+*.CoreCompileInputs.cache
+*.GeneratedMSBuildEditorConfig.editorconfig
+*.genruntimeconfig.cache
+GeneratedInternalTypeHelper.g.cs
+
+# --------------------------------------------------
+# 2. MSBuild & Visual Studio
+# --------------------------------------------------
+.vs/
+.vsdiagnostics/
+*.sln.docstates
+*.suo
+*.user
+*.userosscache
+*.userprefs
+*.pidb
+*.booproj
+*.vspscc
+*.vssscc
+*.vsidx
+Visualizers/
+*.csproj.user
+*.vcxproj.user
+
+# --------------------------------------------------
+# 3. JetBrains Rider & ReSharper
+# --------------------------------------------------
+.idea/
+*.sln.iml
+_ReSharper*/
+*.ReSharper.user
+*.DotSettings.user
+*.rsuser
+*.dotCover
+
+# --------------------------------------------------
+# 4. Visual Studio Code & Editors
+# --------------------------------------------------
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/
+*.ionide
+*.sublime-workspace
+*.sublime-project
+
+# --------------------------------------------------
+# 5. Test, Diagnostics & Code Coverage Results
+# --------------------------------------------------
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.trx
+*.coverage
+*.coveragexml
+coverage.cobertura.xml
+htmlcov/
+.coverage
+.coverage.*
+
+# --------------------------------------------------
+# 6. NuGet Packages & Caches
+# --------------------------------------------------
+*.nupkg
+*.snupkg
+**/packages/*
+!**/packages/build/
+*.nuget.props
+*.nuget.targets
+project.lock.json
+project.assets.json
+
+# --------------------------------------------------
+# 7. Python Bytecode & Virtual Environments (.agents / Skills)
+# --------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+.venv/
+venv/
+ENV/
+env/
+*.egg-info/
+dist/
+build/
+
+# --------------------------------------------------
+# 8. JavaScript / Node.js Tooling (.agents Scripts)
+# --------------------------------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# --------------------------------------------------
+# 9. Graphify Knowledge Graph Cache & Internal States
+# --------------------------------------------------
+graphify-out/cache/
+graphify-out/.*
+!graphify-out/.graphify_root
+graphify-out/*.sig
+graphify-out/*.pending.json
+
+# --------------------------------------------------
+# 10. Secrets, Certificates & Credentials
+# --------------------------------------------------
+.env
+.env.*
+!.env.example
+*.local.json
+appsettings.*.local.json
+appsettings.user.json
+*.key
+*.pem
+*.pfx
+*.p12
+*.cer
+*.crt
+*.token
+*.secret
+
+# --------------------------------------------------
+# 11. InternetMeter Local User Data & Snapshots
+# --------------------------------------------------
+settings.json
+usage_history.json
+*.usage_history.json
+bandwidth_history_*.csv
+
+# --------------------------------------------------
+# 12. Runtime Databases, Logs & Crash Dumps
+# --------------------------------------------------
+*.log
+*.sqlite
+*.db
+*.db-shm
+*.db-wal
+*.dmp
+*.mdmp
+*.prof
+*.vsp
+*.vspx
+*.stackdump
+
+# --------------------------------------------------
+# 13. Temporary & Backup Files
+# --------------------------------------------------
+*.tmp
+*.temp
+*.bak
+*~
+*.swp
+*.swo
+*.crswap
+
+# --------------------------------------------------
+# 14. OS Metadata & Installers (Windows & Cross-Platform)
+# --------------------------------------------------
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
