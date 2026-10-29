@@ -396,9 +396,9 @@
     "semantic_hash": ""
   },
   "MainWindow.xaml.cs": {
-    "mtime": 1793281753.0496502,
-    "seen": 1793282281.2770333,
-    "ast_hash": "c687e15475b939e2a13151ecdf511edb",
+    "mtime": 1793282976.756401,
+    "seen": 1793283054.2042582,
+    "ast_hash": "289e910db666a35b3104221235038570",
     "semantic_hash": ""
   },
   "Models/AppSettings.cs": {
@@ -1194,9 +1194,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1793282263.8413699,
-    "seen": 1793282281.2775662,
-    "ast_hash": "4f2248c4b801ceef3c0b010b8b425c4c",
+    "mtime": 1793282300.5886438,
+    "seen": 1793282485.6291912,
+    "ast_hash": "63ca70f6f9a8236f616355c8e1129c51",
     "semantic_hash": ""
   }
 }

@@ -408,10 +408,15 @@ public partial class MainWindow : Window
             }
         };
 
+        var menuRenderer = new ModernDarkMenuRenderer();
+        var menuFont = new Font("Segoe UI", 9.25f, FontStyle.Regular);
+
         var trayMenu = new Forms.ContextMenuStrip
         {
-            Renderer = new Forms.ToolStripProfessionalRenderer(new DarkColorTable()),
+            Renderer = menuRenderer,
             ShowImageMargin = true,
+            ShowCheckMargin = false,
+            Font = menuFont,
             BackColor = Color.FromArgb(22, 24, 34),
             ForeColor = Color.FromArgb(248, 250, 252)
         };
@@ -439,15 +444,23 @@ public partial class MainWindow : Window
 
         var unitsSubmenu = new Forms.ToolStripMenuItem("Speed Unit")
         {
-            ForeColor = Color.FromArgb(248, 250, 252),
-            DropDown = { BackColor = Color.FromArgb(22, 24, 34) }
+            ForeColor = Color.FromArgb(248, 250, 252)
         };
-        foreach (SpeedUnit u in Enum.GetValues(typeof(SpeedUnit)))
+        ApplyDarkMenuTheme(unitsSubmenu, menuRenderer, menuFont);
+
+        (string Label, SpeedUnit Unit)[] unitOptions = [
+            ("MBps (MB/s)", SpeedUnit.MBps),
+            ("Mbps (Megabits)", SpeedUnit.Mbps),
+            ("KBps (KB/s)", SpeedUnit.KBps),
+            ("Kbps (Kilobits)", SpeedUnit.Kbps)
+        ];
+        foreach (var (lbl, u) in unitOptions)
         {
-            var unitItem = new Forms.ToolStripMenuItem(u.ToString())
+            var unitItem = new Forms.ToolStripMenuItem(lbl)
             {
                 Checked = _viewModel.CurrentUnit == u,
-                ForeColor = Color.FromArgb(248, 250, 252)
+                ForeColor = Color.FromArgb(248, 250, 252),
+                Tag = u
             };
             unitItem.Click += (s, e) => _viewModel.SetUnit(u);
             unitsSubmenu.DropDownItems.Add(unitItem);
@@ -456,16 +469,16 @@ public partial class MainWindow : Window
 
         var adaptersSubmenu = new Forms.ToolStripMenuItem("Network Adapter")
         {
-            ForeColor = Color.FromArgb(248, 250, 252),
-            DropDown = { BackColor = Color.FromArgb(22, 24, 34) }
+            ForeColor = Color.FromArgb(248, 250, 252)
         };
+        ApplyDarkMenuTheme(adaptersSubmenu, menuRenderer, menuFont);
         trayMenu.Items.Add(adaptersSubmenu);
 
         var themeSubmenu = new Forms.ToolStripMenuItem("Theme")
         {
-            ForeColor = Color.FromArgb(248, 250, 252),
-            DropDown = { BackColor = Color.FromArgb(22, 24, 34) }
+            ForeColor = Color.FromArgb(248, 250, 252)
         };
+        ApplyDarkMenuTheme(themeSubmenu, menuRenderer, menuFont);
         (string ThemeName, ThemePalette Palette)[] themeList = [
             ("Emerald & Sky (Default)", ThemePalette.EmeraldSky),
             ("Cyberpunk Neon", ThemePalette.CyberpunkNeon),
@@ -487,9 +500,10 @@ public partial class MainWindow : Window
 
         var scaleSubmenu = new Forms.ToolStripMenuItem("Scale")
         {
-            ForeColor = Color.FromArgb(248, 250, 252),
-            DropDown = { BackColor = Color.FromArgb(22, 24, 34) }
+            ForeColor = Color.FromArgb(248, 250, 252)
         };
+        ApplyDarkMenuTheme(scaleSubmenu, menuRenderer, menuFont);
+
         (string ScaleName, double ScVal)[] scaleList = [
             ("85% (Compact)", 0.85),
             ("100% (Standard)", 1.0),
@@ -519,9 +533,10 @@ public partial class MainWindow : Window
 
         var opacitySubmenu = new Forms.ToolStripMenuItem("Opacity")
         {
-            ForeColor = Color.FromArgb(248, 250, 252),
-            DropDown = { BackColor = Color.FromArgb(22, 24, 34) }
+            ForeColor = Color.FromArgb(248, 250, 252)
         };
+        ApplyDarkMenuTheme(opacitySubmenu, menuRenderer, menuFont);
+
         (string Label, double Val)[] opacityLevels = [("100%", 1.0), ("80%", 0.8), ("60%", 0.6), ("40%", 0.4)];
         foreach (var (lbl, val) in opacityLevels)
         {
@@ -586,9 +601,10 @@ public partial class MainWindow : Window
 
         var dataCapSubmenu = new Forms.ToolStripMenuItem("Monthly Data Cap")
         {
-            ForeColor = Color.FromArgb(248, 250, 252),
-            DropDown = { BackColor = Color.FromArgb(22, 24, 34) }
+            ForeColor = Color.FromArgb(248, 250, 252)
         };
+        ApplyDarkMenuTheme(dataCapSubmenu, menuRenderer, menuFont);
+
         var enableCapItem = new Forms.ToolStripMenuItem("Enable Data Cap")
         {
             Checked = _viewModel.IsDataCapEnabled,
@@ -610,7 +626,8 @@ public partial class MainWindow : Window
         {
             var pItem = new Forms.ToolStripMenuItem(lbl, null, (s, e) => _viewModel.SetDataCapPreset(gb))
             {
-                ForeColor = Color.FromArgb(248, 250, 252)
+                ForeColor = Color.FromArgb(248, 250, 252),
+                Tag = gb
             };
             dataCapSubmenu.DropDownItems.Add(pItem);
         }
@@ -659,7 +676,7 @@ public partial class MainWindow : Window
             }
             foreach (Forms.ToolStripMenuItem item in unitsSubmenu.DropDownItems)
             {
-                item.Checked = string.Equals(item.Text, _viewModel.CurrentUnit.ToString(), StringComparison.Ordinal);
+                if (item.Tag is SpeedUnit u) item.Checked = _viewModel.CurrentUnit == u;
             }
             adaptersSubmenu.DropDownItems.Clear();
             _viewModel.ReloadAdapters();
@@ -679,6 +696,13 @@ public partial class MainWindow : Window
                     }
                 };
                 adaptersSubmenu.DropDownItems.Add(adItem);
+            }
+            foreach (Forms.ToolStripItem item in dataCapSubmenu.DropDownItems)
+            {
+                if (item is Forms.ToolStripMenuItem mi && mi.Tag is double gb)
+                {
+                    mi.Checked = _viewModel.IsDataCapEnabled && Math.Abs(_viewModel.DataCapGigabytes - gb) < 1.0;
+                }
             }
             foreach (Forms.ToolStripMenuItem item in opacitySubmenu.DropDownItems)
             {
@@ -1002,11 +1026,144 @@ public partial class MainWindow : Window
         }
     }
 
+    private static void ApplyDarkMenuTheme(Forms.ToolStripDropDownItem item, Forms.ToolStripRenderer renderer, Font font)
+    {
+        if (item.DropDown != null)
+        {
+            item.DropDown.Renderer = renderer;
+            item.DropDown.Font = font;
+            item.DropDown.BackColor = Color.FromArgb(22, 24, 34);
+            item.DropDown.ForeColor = Color.FromArgb(248, 250, 252);
+            item.DropDown.ShowImageMargin = true;
+            item.DropDown.ShowCheckMargin = false;
+        }
+    }
+
+    private class ModernDarkMenuRenderer : Forms.ToolStripProfessionalRenderer
+    {
+        public ModernDarkMenuRenderer() : base(new DarkColorTable()) { }
+
+        protected override void OnRenderToolStripBackground(Forms.ToolStripRenderEventArgs e)
+        {
+            using var brush = new SolidBrush(Color.FromArgb(22, 24, 34)); // #161822
+            e.Graphics.FillRectangle(brush, e.AffectedBounds);
+        }
+
+        protected override void OnRenderImageMargin(Forms.ToolStripRenderEventArgs e)
+        {
+            // Paint margin in the same seamless background so there is no gray gutter bar
+            using var brush = new SolidBrush(Color.FromArgb(22, 24, 34));
+            e.Graphics.FillRectangle(brush, e.AffectedBounds);
+        }
+
+        protected override void OnRenderToolStripBorder(Forms.ToolStripRenderEventArgs e)
+        {
+            using var pen = new Pen(Color.FromArgb(51, 65, 85), 1); // #334155
+            var r = e.AffectedBounds;
+            e.Graphics.DrawRectangle(pen, r.X, r.Y, r.Width - 1, r.Height - 1);
+        }
+
+        protected override void OnRenderMenuItemBackground(Forms.ToolStripItemRenderEventArgs e)
+        {
+            var g = e.Graphics;
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+
+            var item = e.Item;
+            if (item.Selected && item.Enabled)
+            {
+                var rect = new Rectangle(3, 1, item.Width - 6, item.Height - 2);
+                using var brush = new SolidBrush(Color.FromArgb(38, 43, 61)); // #262B3D
+                using var path = CreateRoundedRectangle(rect, 4);
+                g.FillPath(brush, path);
+            }
+        }
+
+        protected override void OnRenderItemCheck(Forms.ToolStripItemImageRenderEventArgs e)
+        {
+            var g = e.Graphics;
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+
+            var rect = e.ImageRectangle;
+            int size = 15;
+            int x = rect.X + (rect.Width - size) / 2;
+            int y = rect.Y + (rect.Height - size) / 2;
+            var boxRect = new Rectangle(x, y, size, size);
+
+            // Draw rounded backing box: #1E2436 matching WPF CheckMarkBox
+            using (var boxBrush = new SolidBrush(Color.FromArgb(30, 36, 54)))
+            using (var boxPath = CreateRoundedRectangle(boxRect, 3))
+            {
+                g.FillPath(boxBrush, boxPath);
+            }
+
+            // Draw clean emerald green checkmark ✓: #10B981 matching WPF
+            using (var checkPen = new Pen(Color.FromArgb(16, 185, 129), 2f))
+            {
+                checkPen.StartCap = LineCap.Round;
+                checkPen.EndCap = LineCap.Round;
+                Point p1 = new(x + 3, y + 7);
+                Point p2 = new(x + 6, y + 11);
+                Point p3 = new(x + 12, y + 4);
+
+                g.DrawLine(checkPen, p1, p2);
+                g.DrawLine(checkPen, p2, p3);
+            }
+        }
+
+        protected override void OnRenderSeparator(Forms.ToolStripSeparatorRenderEventArgs e)
+        {
+            var g = e.Graphics;
+            var rect = e.Item.ContentRectangle;
+            int y = rect.Top + rect.Height / 2;
+            using var pen = new Pen(Color.FromArgb(42, 47, 69), 1); // #2A2F45
+            g.DrawLine(pen, rect.Left + 8, y, rect.Right - 8, y);
+        }
+
+        protected override void OnRenderArrow(Forms.ToolStripArrowRenderEventArgs e)
+        {
+            var g = e.Graphics;
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+
+            var color = e.Item.Selected ? Color.FromArgb(248, 250, 252) : Color.FromArgb(148, 163, 184); // #94A3B8
+            using var brush = new SolidBrush(color);
+
+            var r = e.ArrowRectangle;
+            Point[] points = [
+                new(r.Left + 3, r.Top + r.Height / 2 - 4),
+                new(r.Left + 7, r.Top + r.Height / 2),
+                new(r.Left + 3, r.Top + r.Height / 2 + 4)
+            ];
+            g.FillPolygon(brush, points);
+        }
+
+        protected override void OnRenderItemText(Forms.ToolStripItemTextRenderEventArgs e)
+        {
+            e.TextColor = !e.Item.Enabled
+                ? Color.FromArgb(100, 116, 139) // #64748B
+                : e.Item.Selected
+                    ? Color.FromArgb(255, 255, 255)
+                    : Color.FromArgb(248, 250, 252); // #F8FAFC
+            base.OnRenderItemText(e);
+        }
+
+        private static GraphicsPath CreateRoundedRectangle(Rectangle rect, int radius)
+        {
+            var path = new GraphicsPath();
+            int d = radius * 2;
+            path.AddArc(rect.X, rect.Y, d, d, 180, 90);
+            path.AddArc(rect.Right - d, rect.Y, d, d, 270, 90);
+            path.AddArc(rect.Right - d, rect.Bottom - d, d, d, 0, 90);
+            path.AddArc(rect.X, rect.Bottom - d, d, d, 90, 90);
+            path.CloseFigure();
+            return path;
+        }
+    }
+
     private class DarkColorTable : Forms.ProfessionalColorTable
     {
         public override Color ToolStripDropDownBackground => Color.FromArgb(22, 24, 34);
         public override Color MenuBorder => Color.FromArgb(51, 65, 85);
-        public override Color MenuItemBorder => Color.FromArgb(38, 43, 61);
+        public override Color MenuItemBorder => Color.Transparent;
         public override Color MenuItemSelected => Color.FromArgb(38, 43, 61);
         public override Color MenuItemSelectedGradientBegin => Color.FromArgb(38, 43, 61);
         public override Color MenuItemSelectedGradientEnd => Color.FromArgb(38, 43, 61);

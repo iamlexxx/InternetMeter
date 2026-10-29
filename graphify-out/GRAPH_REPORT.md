@@ -1,14 +1,19 @@
 # Graph Report - InternetMeter  (2026-10-29)
 
 ## Corpus Check
-- 197 files · ~268,716 words
+- 197 files · ~269,294 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 54 file(s) not represented in the graph (top: .csv 53, (none) 1)
+- Unclassified: 55 file(s) not represented in the graph (top: .csv 53, (none) 2)
 
 ## Summary
-- 3952 nodes · 6142 edges · 208 communities (175 shown, 33 thin omitted)
-- Extraction: 92% EXTRACTED · 8% INFERRED · 0% AMBIGUOUS · INFERRED: 461 edges (avg confidence: 0.8)
+- 3975 nodes · 6170 edges · 203 communities (172 shown, 31 thin omitted)
+- Extraction: 93% EXTRACTED · 7% INFERRED · 0% AMBIGUOUS · INFERRED: 461 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
+
+## Graph Freshness
+- Built from commit: `429f049e`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - ShadcnInstaller
@@ -49,7 +54,7 @@
 - States and Variants
 - color
 - UI Styling Skill
-- argparse
+- render-html.py
 - Workflow
 - design-tokens-starter.json
 - Capabilities
@@ -57,11 +62,11 @@
 - Tailwind CSS Customization
 - ui-visual-validator/SKILL.md
 - generate-slide.py
-- search-slides.py
-- test_design_system_mode.py
+- ModernDarkMenuRenderer
+- test_style_taxonomy.py
 - Routing by Task Type
-- read_rows
-- json
+- NetworkService
+- csv
 - shadcn/ui Theming & Customization
 - TestTailwindConfigGenerator
 - AppSettings
@@ -74,7 +79,7 @@
 - Brand Consistency Checklist
 - CIP Mockup Prompt Engineering
 - Color Semantics
-- TestNativeDesktopStackFreshness
+- .OnStartup
 - ThemeTokens
 - .GetRecords
 - Design Principles
@@ -113,13 +118,13 @@
 - validate-tokens.cjs
 - MainWindow
 - TestSearchDomains
-- test_data_contracts.py
+- QuotaAlertLevel
 - Core Visual Elements
 - inject-brand-context.cjs
 - CIP Design Style Guide
-- MainWindow
+- .EnsureWithinWorkingArea
 - DataCapConfigViewModel
-- BM25
+- logo/search.py
 - sync-brand-to-tokens.cjs
 - Brand
 - Slide Strategies
@@ -128,8 +133,8 @@
 - duration
 - Slide Strategies
 - InternetMeter.Tests.csproj
-- FakeNetworkService
-- _select_palette_for_mode
+- GhostModeTests
+- LatencyTier
 - Instructions
 - Window
 - button
@@ -143,7 +148,7 @@
 - HTML Slide Template
 - Error Analysis and Resolution
 - Error Tracking and Monitoring
-- EqualityToBooleanConverter
+- [1.0.1] — 2026-10-29
 - Slides
 - TestBm25CoreBehavior
 - cip/core.py
@@ -152,7 +157,6 @@
 - IProcessNetworkService
 - ProcessNetworkService
 - test_text_layout_resilience.py
-- TestTokenizer
 - Window
 - DesignSystemGenerator
 - radius
@@ -160,21 +164,20 @@
 - create.md
 - RollingHistoryService
 - BandwidthAnalyticsWindow
-- _palette_is_dark
+- test_design_system_mode.py
 - ProcessTrafficInfo
 - ITrafficJournalService
 - test_relevance_evaluator.py
 - DataCapServiceTests
 - PingService
 - DataCapQuotaInfo
-- .generate
 - ProcessUsageRecord
 - Code Review Excellence
 - .PlotCanvas_MouseMove
 - Async Python Patterns
 - TrafficJournalService
 - Python Performance Optimization
-- RelayCommand
+- Tab15mBtn
 - NetworkAdapterInfo
 - BandwidthSample
 - PART_Popup
@@ -182,16 +185,12 @@
 - FakeProcessNetworkService
 - DownloadBrush
 - NetworkHealthTelemetry
-- logo/core.py
+- CrosshairLine
 - $type
 - PingTelemetry
-- BM25
-- TestStyleTaxonomy
 - radius
 - lg
 - .FormatSpeed
-- Converters.cs
-- Changed
 - Border
 - padding-y
 - sm
@@ -206,7 +205,6 @@
 - destructive-foreground
 - muted
 - primary-foreground
-- GraphCanvas
 - ring
 - secondary-foreground
 
@@ -214,7 +212,7 @@
 1. `MainViewModel` - 176 edges
 2. `Window` - 115 edges
 3. `AppSettings` - 72 edges
-4. `MainWindow` - 66 edges
+4. `MainWindow` - 68 edges
 5. `BandwidthAnalyticsViewModel` - 61 edges
 6. `TailwindConfigGenerator` - 58 edges
 7. `Window` - 49 edges
@@ -223,21 +221,21 @@
 10. `TestTailwindConfigGenerator` - 35 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `Fixed` --references--> `EqualityToBooleanConverter`  [INFERRED]
+  CHANGELOG.md → Converters/Converters.cs
 - `Added` --references--> `AppSettings`  [INFERRED]
   CHANGELOG.md → Models/AppSettings.cs
 - `Added` --references--> `RollingHistoryService`  [INFERRED]
   CHANGELOG.md → Services/RollingHistoryService.cs
 - `Added` --references--> `TrafficJournalService`  [INFERRED]
   CHANGELOG.md → Services/TrafficJournalService.cs
-- `Fixed` --references--> `EqualityToBooleanConverter`  [INFERRED]
-  CHANGELOG.md → Converters/Converters.cs
 - `Fixed` --references--> `InverseBooleanToVisibilityConverter`  [INFERRED]
   CHANGELOG.md → Converters/Converters.cs
 
 ## Import Cycles
 - None detected.
 
-## Communities (208 total, 33 thin omitted)
+## Communities (203 total, 31 thin omitted)
 
 ### Community 0 - "ShadcnInstaller"
 Cohesion: 0.05
@@ -256,8 +254,8 @@ Cohesion: 0.05
 Nodes (53): $type, $value, $type, $value, $type, $value, $type, $value (+45 more)
 
 ### Community 4 - "design_system.py"
-Cohesion: 0.06
-Nodes (16): ansi_ljust(), _detect_page_type(), format_ascii_box(), format_markdown(), format_master_md(), format_page_override_md(), generate_design_system(), _generate_intelligent_overrides() (+8 more)
+Cohesion: 0.05
+Nodes (17): ansi_ljust(), _detect_page_type(), format_ascii_box(), format_markdown(), format_master_md(), format_page_override_md(), generate_design_system(), _generate_intelligent_overrides() (+9 more)
 
 ### Community 5 - "cip/generate.py"
 Cohesion: 0.19
@@ -269,11 +267,11 @@ Nodes (12): $type, $value, bg, bg, padding, shadow, card, bg (+4 more)
 
 ### Community 7 - "Window"
 Cohesion: 0.03
-Nodes (75): AlwaysOnTop, BufferbloatColorHex, BufferbloatStatusText, ConnColorConv, EqualityToBool, InverseBoolToVis, OpacityToBool, CurrentOpacity (+67 more)
+Nodes (77): AlwaysOnTop, BufferbloatColorHex, BufferbloatStatusText, ConnColorConv, EqualityToBool, InverseBoolToVis, OpacityToBool, CurrentOpacity (+69 more)
 
 ### Community 8 - "slide_search_core.py"
-Cohesion: 0.13
-Nodes (11): calculate_pattern_break(), detect_domain(), get_background_config(), get_color_for_emotion(), get_layout_for_goal(), get_typography_for_slide(), _load_csv(), _load_decision_csv() (+3 more)
+Cohesion: 0.08
+Nodes (17): format_context(), format_result(), main(), BM25, calculate_pattern_break(), detect_domain(), get_background_config(), get_color_for_emotion() (+9 more)
 
 ### Community 9 - "Tailwind CSS Utility Reference"
 Cohesion: 0.05
@@ -344,8 +342,8 @@ Cohesion: 0.07
 Nodes (28): Absolute Don'ts, Approved Backgrounds, Before Using Logo, Clear Space, Co-branding, Color Rules, Color Usage, Color Variants (+20 more)
 
 ### Community 26 - "pathlib"
-Cohesion: 0.09
-Nodes (6): test_sync_parses_bundled_starter_template(), main(), _run(), test_flags_hardcoded_hex_sharing_line_with_token(), test_token_only_line_reports_no_violation(), read_rows()
+Cohesion: 0.08
+Nodes (10): test_sync_parses_bundled_starter_template(), format_brief(), format_results(), main(), main(), _run(), test_flags_hardcoded_hex_sharing_line_with_token(), test_token_only_line_reports_no_violation() (+2 more)
 
 ### Community 27 - "Component Specifications"
 Cohesion: 0.07
@@ -360,8 +358,8 @@ Cohesion: 0.07
 Nodes (28): Accordion, Alert, ARIA Labels, Checkbox and Radio, Color Contrast, Command Palette Navigation, Component-Specific Patterns, Dialog/Modal Navigation (+20 more)
 
 ### Community 30 - "AutoStartService"
-Cohesion: 0.10
-Nodes (4): AutoStartService, IAutoStartService, FakeAutoStartService, FakeAutoStartService
+Cohesion: 0.09
+Nodes (5): AutoStartService, IAutoStartService, AutoStartServiceTests, FakeAutoStartService, FakeAutoStartService
 
 ### Community 31 - "Asset Approval Checklist"
 Cohesion: 0.08
@@ -391,9 +389,9 @@ Nodes (19): $type, $value, background, foreground, muted-foreground, primary, pr
 Cohesion: 0.08
 Nodes (24): Accessibility Patterns, Alternative: Tailwind-Only Setup, Best Practices, Common Patterns, Component Layer: shadcn/ui, Component Library Guide, Component + Styling Setup, Core Stack (+16 more)
 
-### Community 38 - "argparse"
-Cohesion: 0.12
-Nodes (8): generate_html(), get_deliverable_info(), get_image_base64(), main(), format_brief(), format_results(), main(), main()
+### Community 38 - "render-html.py"
+Cohesion: 0.25
+Nodes (4): generate_html(), get_deliverable_info(), get_image_base64(), main()
 
 ### Community 39 - "Workflow"
 Cohesion: 0.08
@@ -423,25 +421,21 @@ Nodes (21): Accessibility Visual Verification, Advanced Validation Techniques, A
 Cohesion: 0.13
 Nodes (11): _e(), generate_chart_slide(), generate_cta_slide(), generate_deck(), generate_metrics_slide(), generate_problem_slide(), generate_solution_slide(), generate_testimonial_slide() (+3 more)
 
-### Community 46 - "search-slides.py"
-Cohesion: 0.27
-Nodes (5): format_context(), format_result(), main(), search(), search_all()
-
-### Community 47 - "test_design_system_mode.py"
-Cohesion: 0.14
-Nodes (6): _filter_anti_patterns_for_mode(), _query_wants_dark(), _resolve_color_mode(), _style_is_dark_primary(), TestAntiPatternGating, TestModeResolution
+### Community 47 - "test_style_taxonomy.py"
+Cohesion: 0.10
+Nodes (6): _query_wants_dark(), _resolve_color_mode(), _style_is_dark_primary(), TestModeResolution, read_rows(), TestStyleTaxonomy
 
 ### Community 48 - "Routing by Task Type"
 Cohesion: 0.10
 Nodes (19): Banner Design Tasks, Brand Identity Tasks, Component Creation, Corporate Identity Program Tasks, Design Routing Guide, Design System Migration, Icon Design Tasks, Implementation Tasks (+11 more)
 
-### Community 49 - "read_rows"
+### Community 49 - "NetworkService"
 Cohesion: 0.17
-Nodes (6): read_rows(), split_values(), style_identities(), TestLandingAndStackContract, TestReasoningContract, TestStyleIdentityContract
+Nodes (6): AdapterSnapshot, BytesReceived, BytesSent, TimestampStopwatchTicks, NetworkService, ServiceTests
 
-### Community 50 - "json"
-Cohesion: 0.11
-Nodes (11): format_output(), generate_design_brief(), generate_css_for_background(), get_background_image(), get_curated_images(), get_overlay_css(), get_pexels_search_url(), load_backgrounds_config() (+3 more)
+### Community 50 - "csv"
+Cohesion: 0.07
+Nodes (11): generate_css_for_background(), get_background_image(), get_curated_images(), get_overlay_css(), get_pexels_search_url(), load_backgrounds_config(), load_brand_colors(), main() (+3 more)
 
 ### Community 51 - "shadcn/ui Theming & Customization"
 Cohesion: 0.10
@@ -449,7 +443,7 @@ Nodes (19): Base Color Presets, Best Practices, Color Customization, Color Forma
 
 ### Community 53 - "AppSettings"
 Cohesion: 0.04
-Nodes (44): AppSettings, AlwaysOnTop, BillingCycleResetDay, CompactLeft, CompactTop, CriticalThresholdPercent, DataCapEnabled, DataCapGigabytes (+36 more)
+Nodes (47): AppSettings, AlwaysOnTop, BillingCycleResetDay, CompactLeft, CompactTop, CriticalThresholdPercent, DataCapEnabled, DataCapGigabytes (+39 more)
 
 ### Community 54 - "Asset Organization Guide"
 Cohesion: 0.11
@@ -532,8 +526,8 @@ Cohesion: 0.13
 Nodes (14): AIDA (Attention-Interest-Desire-Action), Before-After-Bridge, Contrast Patterns, Copywriting Formulas, Core Formulas, Cost of Inaction, FAB (Features-Advantages-Benefits), Formula-to-Slide Mapping (+6 more)
 
 ### Community 76 - "Fact"
-Cohesion: 0.22
-Nodes (8): SingleInstanceTests, FakeAutoStartService, FakeNetworkService, FakeProcessNetworkService, Journal, FakeSettingsService, CurrentSettings, ThemeCustomizerTests
+Cohesion: 0.16
+Nodes (10): ThemePalette, CyberpunkNeon, EmeraldSky, MonochromeStealth, SolarAmber, FakeAutoStartService, FakeNetworkService, FakeProcessNetworkService (+2 more)
 
 ### Community 78 - "InternetMeter 🌐⚡"
 Cohesion: 0.12
@@ -568,8 +562,8 @@ Cohesion: 0.14
 Nodes (13): Card Styles, Component Variants, CSS Structures, Feature Grid (3 columns), Layout Decision Flow, Layout Patterns, Layout Selection by Use Case, Metric Styles (+5 more)
 
 ### Community 88 - "InternetMeter.Models"
-Cohesion: 0.07
-Nodes (7): InternetMeter.Views, InternetMeter.ViewModels, InternetMeter.Services, InternetMeter.Common, InternetMeter, InternetMeter.Models, InternetMeter.Tests
+Cohesion: 0.06
+Nodes (9): RelayCommand, RelayCommand, InternetMeter.Views, InternetMeter.ViewModels, InternetMeter.Services, InternetMeter.Common, InternetMeter, InternetMeter.Models (+1 more)
 
 ### Community 89 - "update.md"
 Cohesion: 0.15
@@ -588,12 +582,12 @@ Cohesion: 0.05
 Nodes (36): BandwidthAnalyticsViewModel, AccentGlowBrush, AverageRateSubtext, AverageRateText, CardBackgroundBrush, CardBorderBrush, CurrentSamples, CurrentTheme (+28 more)
 
 ### Community 95 - "Window"
-Cohesion: 0.08
-Nodes (27): FormattedTotal, FormattedTotalDownload, FormattedTotalUpload, IsActive, PercentageOfTotal, bd, ClearSearchBtn, EmptyStateText (+19 more)
+Cohesion: 0.09
+Nodes (25): FormattedTotal, FormattedTotalDownload, FormattedTotalUpload, IsActive, PercentageOfTotal, bd, ClearSearchBtn, EmptyStateText (+17 more)
 
 ### Community 96 - "CultureInfo"
-Cohesion: 0.27
-Nodes (3): ConnectionStatusColorConverter, InverseBooleanToVisibilityConverter, MultiplyConverter
+Cohesion: 0.20
+Nodes (5): ConnectionStatusColorConverter, EqualityToBooleanConverter, InverseBooleanToVisibilityConverter, MultiplyConverter, InternetMeter.Converters
 
 ### Community 97 - "Instructions"
 Cohesion: 0.14
@@ -611,9 +605,13 @@ Nodes (8): args, fs, minimal, MINIMAL_TOKENS, path, projectRoot, tokensPath, wra
 Cohesion: 0.24
 Nodes (11): extensions, formatReport(), fs, getFiles(), main(), parseArgs(), path, patterns (+3 more)
 
-### Community 103 - "test_data_contracts.py"
-Cohesion: 0.17
-Nodes (4): apply_decision_rules(), _object_without_duplicates(), parse_decision_rules(), _validate_action()
+### Community 101 - "MainWindow"
+Cohesion: 0.08
+Nodes (5): AdaptersMenu, MainContextMenu, MainWindow, ContextMenu, MenuItem
+
+### Community 103 - "QuotaAlertLevel"
+Cohesion: 0.25
+Nodes (6): QuotaAlertLevel, Critical95, Exceeded100, Normal, Warning80, QuotaAlertNotification
 
 ### Community 104 - "Core Visual Elements"
 Cohesion: 0.18
@@ -627,12 +625,8 @@ Nodes (10): extractColorsFromTable(), extractCoreAttributes(), extractHexColors(
 Cohesion: 0.18
 Nodes (10): Bold Dynamic, CIP Design Style Guide, Classic Traditional, Color Psychology, Corporate Minimal, Fresh Modern, Luxury Premium, Modern Tech (+2 more)
 
-### Community 107 - "MainWindow"
-Cohesion: 0.08
-Nodes (6): [1.5.0] — 2026-10-29, Added, Fixed, MainContextMenu, MainWindow, ContextMenu
-
 ### Community 108 - "DataCapConfigViewModel"
-Cohesion: 0.07
+Cohesion: 0.09
 Nodes (15): IDataCapService, CurrentQuota, DataCapConfigViewModel, BillingCyclePreviewText, BillingCycleResetDay, CancelCommand, CriticalThresholdPercent, DataCapGigabytes (+7 more)
 
 ### Community 110 - "sync-brand-to-tokens.cjs"
@@ -667,13 +661,13 @@ Nodes (9): Common Structures, Duarte Sparkline Pattern, Matching Strategy to Con
 Cohesion: 0.20
 Nodes (8): net8.0-windows, Microsoft.NET.Sdk, coverlet.collector (6.0.0), Microsoft.NET.Test.Sdk (17.8.0), xunit (2.5.3), xunit.runner.visualstudio (2.5.3), net8.0-windows, Microsoft.NET.Sdk
 
-### Community 120 - "FakeNetworkService"
-Cohesion: 0.19
-Nodes (5): FakeAutoStartService, FakeNetworkService, FakeSettingsService, CurrentSettings, GhostModeTests
+### Community 120 - "GhostModeTests"
+Cohesion: 0.38
+Nodes (3): FakeSettingsService, CurrentSettings, GhostModeTests
 
-### Community 121 - "_select_palette_for_mode"
-Cohesion: 0.22
-Nodes (4): _contrast_ratio(), _derive_dark_palette(), _select_palette_for_mode(), TestPaletteSelection
+### Community 121 - "LatencyTier"
+Cohesion: 0.40
+Nodes (5): LatencyTier, Critical, Moderate, Offline, Optimal
 
 ### Community 122 - "Instructions"
 Cohesion: 0.17
@@ -688,8 +682,8 @@ Cohesion: 0.20
 Nodes (10): fg, font-size, hover-bg, button, $type, $value, $type, $value (+2 more)
 
 ### Community 125 - "IPingService"
-Cohesion: 0.06
-Nodes (16): NetworkHealthTelemetry, IPingService, CurrentHealth, IsRunning, FakePingService, CurrentHealth, IsRunning, FakePingService (+8 more)
+Cohesion: 0.07
+Nodes (15): IPingService, CurrentHealth, IsRunning, FakePingService, CurrentHealth, IsRunning, FakePingService, CurrentHealth (+7 more)
 
 ### Community 126 - "Error Analysis and Resolution"
 Cohesion: 0.22
@@ -727,29 +721,29 @@ Nodes (8): Context, Do not use this skill when, Error Analysis and Resolution, I
 Cohesion: 0.22
 Nodes (8): Context, Do not use this skill when, Error Tracking and Monitoring, Instructions, Output Format, Requirements, Resources, Use this skill when
 
-### Community 138 - "EqualityToBooleanConverter"
-Cohesion: 0.40
-Nodes (4): [1.0.1] — 2026-10-29, Added, Fixed, EqualityToBooleanConverter
+### Community 138 - "[1.0.1] — 2026-10-29"
+Cohesion: 0.67
+Nodes (3): [1.0.1] — 2026-10-29, Added, Fixed
 
 ### Community 139 - "Slides"
 Cohesion: 0.33
 Nodes (5): References (Knowledge Base), Routing, Slides, Subcommands, When to Use
 
 ### Community 141 - "cip/core.py"
-Cohesion: 0.12
-Nodes (7): BM25, detect_domain(), get_cip_brief(), _load_csv(), search(), search_all(), _search_csv()
+Cohesion: 0.06
+Nodes (13): BM25, detect_domain(), get_cip_brief(), _load_csv(), search(), search_all(), _search_csv(), BM25 (+5 more)
 
 ### Community 142 - "input"
 Cohesion: 0.29
 Nodes (8): padding-x, input, $type, $value, focus-ring, padding-x, $type, $value
 
 ### Community 143 - "Changelog"
-Cohesion: 0.07
-Nodes (27): [1.0.0] — 2026-10-29, [1.1.0] — 2026-10-29, [1.1.1] — 2026-10-29, [1.1.2] — 2026-10-29, [1.2.0] — 2026-10-29, [1.3.0] — 2026-10-29, [1.4.0] — 2026-10-29, [1.5.1] — 2026-10-29 (+19 more)
+Cohesion: 0.06
+Nodes (31): [1.0.0] — 2026-10-29, [1.0.2] — 2026-10-29, [1.1.0] — 2026-10-29, [1.1.1] — 2026-10-29, [1.1.2] — 2026-10-29, [1.2.0] — 2026-10-29, [1.3.0] — 2026-10-29, [1.4.0] — 2026-10-29 (+23 more)
 
 ### Community 144 - "IProcessNetworkService"
-Cohesion: 0.12
-Nodes (8): IProcessNetworkService, Journal, CompactModeTests, FakeNetworkService, FakeProcessNetworkService, Journal, FakeSettingsService, CurrentSettings
+Cohesion: 0.14
+Nodes (7): IProcessNetworkService, Journal, CompactModeTests, FakeAutoStartService, FakeNetworkService, FakeProcessNetworkService, Journal
 
 ### Community 145 - "ProcessNetworkService"
 Cohesion: 0.23
@@ -763,6 +757,10 @@ Nodes (3): read_rows(), TestTextLayoutDataContracts, TestTextLayoutRetrieval
 Cohesion: 0.08
 Nodes (28): ActualHeight, ActualWidth, AverageRateSubtext, AverageRateText, ExportCsvCommand, PeakDownloadSubtext, PeakDownloadText, PeakUploadSubtext (+20 more)
 
+### Community 149 - "DesignSystemGenerator"
+Cohesion: 0.06
+Nodes (12): DesignSystemGenerator, apply_decision_rules(), _object_without_duplicates(), parse_decision_rules(), _validate_action(), TestReasoningMatch, read_rows(), split_values() (+4 more)
+
 ### Community 150 - "radius"
 Cohesion: 0.19
 Nodes (14): $type, $value, $type, $value, $type, $value, primitive, radius (+6 more)
@@ -771,13 +769,9 @@ Nodes (14): $type, $value, $type, $value, $type, $value, primitive, radius (+6 m
 Cohesion: 0.35
 Nodes (4): RollingHistoryService, Capacity, Count, RollingHistoryServiceTests
 
-### Community 154 - "BandwidthAnalyticsWindow"
-Cohesion: 0.19
-Nodes (5): Tab15mBtn, Tab30mBtn, Tab60mBtn, BandwidthAnalyticsWindow, Button
-
-### Community 155 - "_palette_is_dark"
-Cohesion: 0.18
-Nodes (4): _palette_is_dark(), _relative_luminance(), TestEndToEndCoherence, TestLuminance
+### Community 155 - "test_design_system_mode.py"
+Cohesion: 0.09
+Nodes (10): _contrast_ratio(), _derive_dark_palette(), _filter_anti_patterns_for_mode(), _palette_is_dark(), _relative_luminance(), _select_palette_for_mode(), TestAntiPatternGating, TestEndToEndCoherence (+2 more)
 
 ### Community 156 - "ProcessTrafficInfo"
 Cohesion: 0.09
@@ -788,20 +782,20 @@ Cohesion: 0.20
 Nodes (5): ITrafficJournalService, MockJournalService, DlToReturn, RecordsToReturn, UlToReturn
 
 ### Community 158 - "test_relevance_evaluator.py"
-Cohesion: 0.12
+Cohesion: 0.11
 Nodes (3): TestFixtureValidation, TestMetricMath, TestThresholdGate
 
 ### Community 159 - "DataCapServiceTests"
-Cohesion: 0.11
-Nodes (7): DataCapService, CurrentQuota, ISettingsService, SettingsService, DataCapServiceTests, FakeSettingsService, CurrentSettings
+Cohesion: 0.17
+Nodes (5): DataCapService, CurrentQuota, DataCapServiceTests, FakeAutoStartService, SingleInstanceTests
 
 ### Community 160 - "PingService"
-Cohesion: 0.11
-Nodes (7): Application, App, PingService, CurrentHealth, IsRunning, FakeAutoStartService, NetworkHealthTests
+Cohesion: 0.20
+Nodes (4): PingService, CurrentHealth, IsRunning, NetworkHealthTests
 
 ### Community 161 - "DataCapQuotaInfo"
-Cohesion: 0.08
-Nodes (23): DataCapQuotaInfo, AlertLevel, CapBytes, CycleEndUtc, CycleStartUtc, DaysRemainingInCycle, FormattedCap, FormattedRemaining (+15 more)
+Cohesion: 0.12
+Nodes (17): DataCapQuotaInfo, AlertLevel, CapBytes, CycleEndUtc, CycleStartUtc, DaysRemainingInCycle, FormattedCap, FormattedRemaining (+9 more)
 
 ### Community 163 - "ProcessUsageRecord"
 Cohesion: 0.10
@@ -812,7 +806,7 @@ Cohesion: 0.29
 Nodes (6): Code Review Excellence, Do not use this skill when, Instructions, Output Format, Resources, Use this skill when
 
 ### Community 165 - ".PlotCanvas_MouseMove"
-Cohesion: 0.24
+Cohesion: 0.28
 Nodes (6): bd, OuterCard, PlotBorder, TooltipBorder, CardBorderBrush, Border
 
 ### Community 166 - "Async Python Patterns"
@@ -827,24 +821,24 @@ Nodes (8): ThemeManager, HistoryStorageModel, Days, Version, ProcessDailyUsage, 
 Cohesion: 0.33
 Nodes (5): Do not use this skill when, Instructions, Python Performance Optimization, Resources, Use this skill when
 
+### Community 169 - "Tab15mBtn"
+Cohesion: 0.50
+Nodes (4): Tab15mBtn, Tab30mBtn, Tab60mBtn, Button
+
 ### Community 170 - "NetworkAdapterInfo"
-Cohesion: 0.06
-Nodes (9): INetworkService, AdapterSnapshot, BytesReceived, BytesSent, TimestampStopwatchTicks, NetworkService, FakeNetworkService, FakeNetworkService (+1 more)
+Cohesion: 0.09
+Nodes (4): INetworkService, FakeNetworkService, FakeNetworkService, FakeNetworkService
 
 ### Community 171 - "BandwidthSample"
-Cohesion: 0.24
+Cohesion: 0.21
 Nodes (4): BandwidthSample, IRollingHistoryService, Capacity, Count
 
 ### Community 172 - "PART_Popup"
 Cohesion: 0.67
 Nodes (3): IsSubmenuOpen, PART_Popup, Popup
 
-### Community 174 - "InlineData"
-Cohesion: 0.24
-Nodes (3): AutoStartServiceTests, ConverterTests, UnitFormatterTests
-
 ### Community 175 - "FakeProcessNetworkService"
-Cohesion: 0.20
+Cohesion: 0.19
 Nodes (14): FakeAutoStartService, FakeNetworkService, FakePingService, CurrentHealth, IsRunning, FakeProcessNetworkService, Journal, LastSystemDeltaDl (+6 more)
 
 ### Community 176 - "DownloadBrush"
@@ -852,20 +846,12 @@ Cohesion: 0.15
 Nodes (14): DownloadAreaBrush, UploadAreaBrush, DlDot, DownloadAreaPath, DownloadPath, TooltipDlText, TooltipUlText, UlDot (+6 more)
 
 ### Community 177 - "NetworkHealthTelemetry"
-Cohesion: 0.29
-Nodes (7): NetworkGrade, A, APlus, B, C, D, F
-
-### Community 178 - "logo/core.py"
-Cohesion: 0.21
-Nodes (5): detect_domain(), _load_csv(), search(), search_all(), _search_csv()
+Cohesion: 0.14
+Nodes (9): NetworkGrade, A, APlus, B, C, D, F, NetworkHealthTelemetry (+1 more)
 
 ### Community 179 - "$type"
 Cohesion: 0.60
 Nodes (5): $type, $value, border, border, border
-
-### Community 180 - "PingTelemetry"
-Cohesion: 0.21
-Nodes (7): LatencyTier, Critical, Moderate, Offline, Optimal, PingTelemetry, PingServiceTests
 
 ### Community 183 - "radius"
 Cohesion: 0.60
@@ -876,7 +862,7 @@ Cohesion: 0.60
 Nodes (5): lg, $type, $value, lg, lg
 
 ### Community 189 - "Border"
-Cohesion: 0.10
+Cohesion: 0.09
 Nodes (20): CardBackgroundBrush, BoolToVis, DataCapHasAlertWarning, DataCapProgressBrush, IsDataCapEnabled, IsProcessInspectorExpanded, ShowPingLatency, Bg (+12 more)
 
 ### Community 190 - "padding-y"
@@ -892,8 +878,8 @@ Cohesion: 0.67
 Nodes (4): $type, $value, none, none
 
 ### Community 194 - "OpacityToBooleanConverter"
-Cohesion: 0.50
-Nodes (3): [1.3.1] — 2026-10-29, Fixed, OpacityToBooleanConverter
+Cohesion: 0.33
+Nodes (4): [1.3.1] — 2026-10-29, Fixed, OpacityToBooleanConverter, ConverterTests
 
 ### Community 195 - "16"
 Cohesion: 0.67
@@ -941,22 +927,22 @@ Nodes (3): secondary-foreground, $type, $value
 
 ## Knowledge Gaps
 - **467 isolated node(s):** `DWMSBT_AUTO`, `DWMSBT_NONE`, `DWMSBT_MAINWINDOW`, `DWMSBT_TRANSIENTWINDOW`, `DWMSBT_TABBEDWINDOW` (+462 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 2207 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **33 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 2218 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **31 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `MainViewModel` connect `MainViewModel` to `Window`, `IProcessNetworkService`, `ProcessNetworkService`, `RollingHistoryService`, `BandwidthAnalyticsWindow`, `ProcessTrafficInfo`, `ITrafficJournalService`, `AutoStartService`, `DataCapServiceTests`, `PingService`, `DataCapQuotaInfo`, `RelayCommand`, `NetworkAdapterInfo`, `BandwidthSample`, `FakeProcessNetworkService`, `AppSettings`, `IReadOnlyList`, `.FormatSpeed`, `Changed`, `ThemeTokens`, `Fact`, `.GeneratePoints`, `InternetMeter.Models`, `MainWindow`, `MainWindow`, `DataCapConfigViewModel`, `FakeNetworkService`, `IPingService`?**
-  _High betweenness centrality (0.088) - this node is a cross-community bridge._
+- **Why does `MainViewModel` connect `MainViewModel` to `Window`, `Changelog`, `IProcessNetworkService`, `ProcessNetworkService`, `RollingHistoryService`, `BandwidthAnalyticsWindow`, `ProcessTrafficInfo`, `ITrafficJournalService`, `AutoStartService`, `DataCapServiceTests`, `PingService`, `DataCapQuotaInfo`, `.OnPropertyChanged`, `NetworkAdapterInfo`, `BandwidthSample`, `FakeProcessNetworkService`, `NetworkHealthTelemetry`, `AppSettings`, `IReadOnlyList`, `.FormatSpeed`, `Border`, `.OnStartup`, `ThemeTokens`, `Fact`, `.GeneratePoints`, `InternetMeter.Models`, `MainWindow`, `QuotaAlertLevel`, `.EnsureWithinWorkingArea`, `DataCapConfigViewModel`, `GhostModeTests`, `IPingService`?**
+  _High betweenness centrality (0.095) - this node is a cross-community bridge._
 - **Are the 23 inferred relationships involving `MainViewModel` (e.g. with `.OnStartup()` and `Window`) actually correct?**
   _`MainViewModel` has 23 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `DWMSBT_AUTO`, `DWMSBT_NONE`, `DWMSBT_MAINWINDOW` to the rest of the system?**
   _467 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `ShadcnInstaller` be split into smaller, more focused modules?**
   _Cohesion score 0.053555750658472345 - nodes in this community are weakly interconnected._
-- **Why does `DataCapQuotaInfo` connect `DataCapQuotaInfo` to `MainViewModel`, `ProcessUsageRecord`, `DataCapConfigViewModel`, `DataCapServiceTests`?**
-  _High betweenness centrality (0.061) - this node is a cross-community bridge._
+- **Why does `DataCapQuotaInfo` connect `DataCapQuotaInfo` to `.OnPropertyChanged`, `ProcessUsageRecord`, `QuotaAlertLevel`, `DataCapConfigViewModel`, `MainViewModel`, `DataCapServiceTests`?**
+  _High betweenness centrality (0.064) - this node is a cross-community bridge._
 - **Are the 5 inferred relationships involving `AppSettings` (e.g. with `Added` and `.SettingsService_DefaultValuesAreSound()`) actually correct?**
   _`AppSettings` has 5 INFERRED edges - model-reasoned connections that need verification._
 - **Should `scripts/core.py` be split into smaller, more focused modules?**
